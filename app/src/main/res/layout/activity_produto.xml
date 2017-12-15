@@ -7,18 +7,41 @@
     tools:context="br.iff.pooa20172.p1_2017_2.ProdutoActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_pratos"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pratos Principais"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/lvEquipes"
-        android:layout_width="wrap_content"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_pratos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cardápio"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <ListView
+                android:id="@+id/lvEquipes"
+                android:layout_width="match_parent"
+                android:layout_height="1850dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="8dp" />
+
+            <TextView
+                android:id="@+id/tv_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total do Pedido:" />
+
+            <Button
+                android:id="@+id/button_finalizar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Finalizar Pedido" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

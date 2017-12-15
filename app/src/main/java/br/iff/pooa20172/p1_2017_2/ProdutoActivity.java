@@ -32,6 +32,22 @@ public class ProdutoActivity extends AppCompatActivity {
         produto.add(produto4);
         Produto produto5 = new Produto("Buchada", "Feito com as vísceras de bode", 15.00, R.drawable.produto5);
         produto.add(produto5);
+        Produto produto6 = new Produto("Cartola Oba-Oba", "Banana frita com queijo derretido", 5.00, R.drawable.sobremesa1);
+        produto.add(produto6);
+        Produto produto7 = new Produto("Cocada", "Cocada mole servida no prato", 4.00, R.drawable.sobremesa2);
+        produto.add(produto7);
+        Produto produto8 = new Produto("Côco Zoinho", "Uma quenga de côco com bananas caramelizadas", 10.00, R.drawable.sobremesa3);
+        produto.add(produto8);
+        Produto produto9 = new Produto("Torta de Maça", "Uma das tortas mais tradicionais do mundo", 19.00, R.drawable.sobremesa4);
+        produto.add(produto9);
+        Produto produto10 = new Produto("Doce de Caju", "Tradicional doce caseiro de caju", 5.00, R.drawable.sobremesa5);
+        produto.add(produto10);
+        Produto produto11 = new Produto("Caldo de Cana", "Líquido extraído na moagem da cana", 3.00, R.drawable.bebida1);
+        produto.add(produto11);
+        Produto produto12 = new Produto("Maltado Gelado", "Leite com chocalate em pó", 5.00, R.drawable.bebida2);
+        produto.add(produto12);
+        Produto produto13 = new Produto("Caipiroska", "Caipiroskas de frutas", 5.00, R.drawable.bebida2);
+        produto.add(produto13);
         return produto;
     }
 }
