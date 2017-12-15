@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button button_Pedido = (Button) findViewById(R.id.button_Pedido);
+        Button button_QuemSomos = (Button) findViewById(R.id.button_QuemSomos);
+        Button button_Sair = (Button) findViewById(R.id.button_Sair);
         button_Pedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -20,6 +22,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        
+        button_QuemSomos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ActivityQuemSomos.class);
+                startActivity(intent);
+            }
+        });
+        button_Sair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.exit(0);
+            }
+        });
+
+
     }
 }
