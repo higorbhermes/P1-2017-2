@@ -12,13 +12,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button bt = (Button) findViewById(R.id.bt);
-        bt.setOnClickListener(new View.OnClickListener() {
+        Button button_Pedido = (Button) findViewById(R.id.button_Pedido);
+        button_Pedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ProdutoActivity.class);
                 startActivity(intent);
             }
         });
+        
     }
 }
