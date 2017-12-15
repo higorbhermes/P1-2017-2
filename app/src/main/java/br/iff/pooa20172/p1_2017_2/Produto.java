@@ -24,7 +24,7 @@ public class Produto {
         return preco;
     }
     public String getDescricao() {
-        return nome;
+        return descricao;
     }
     public void setDescricao(String descricao) {
         this.descricao = descricao;

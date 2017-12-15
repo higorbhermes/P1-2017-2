@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
@@ -33,9 +34,15 @@ public class ProdutoAdapter extends ArrayAdapter<Produto>{
 
         TextView nome = (TextView) rowView.findViewById(R.id.nome);
         ImageView imagem = (ImageView) rowView.findViewById(R.id.imagem);
-
+        TextView descricao = (TextView) rowView.findViewById(R.id.descricao);
+        TextView preco = (TextView) rowView.findViewById(R.id.preco);
+        EditText quantidade = (EditText) rowView.findViewById(R.id.et_Quantidade);
+        String s_Preco = String.valueOf(elementos.get(position).getPreco());
         nome.setText(elementos.get(position).getNome());
         imagem.setImageResource(elementos.get(position).getImagem());
+        descricao.setText(elementos.get(position).getDescricao());
+        preco.setText("Preço: R$"+s_Preco);
+
         return rowView;
     }
 
