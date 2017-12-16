@@ -19,7 +19,7 @@
         <activity android:name=".ProdutoActivity" />
         <activity android:name=".ActivityQuemSomos" />
         <activity android:name=".AdicionarProdutoActivity" />
-        <activity android:name=".IdentificacaoActivity"></activity>
+        <activity android:name=".IdentificacaoActivity" />
     </application>
 
 </manifest>

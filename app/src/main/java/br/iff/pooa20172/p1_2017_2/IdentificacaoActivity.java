@@ -20,7 +20,7 @@ public class IdentificacaoActivity extends AppCompatActivity implements Serializ
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identificacao);
         final String nome, cpf, telefone, rua, bairro, numero, complemento, ponto_referencia;
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         objPedido = (Pedido) intent.getSerializableExtra("pedido");
         final RadioButton rb_dinheiro = (RadioButton)findViewById(R.id.rb_dinheiro);
         final RadioButton rb_credito = (RadioButton)findViewById(R.id.rb_credito);
@@ -69,11 +69,13 @@ public class IdentificacaoActivity extends AppCompatActivity implements Serializ
                     objEndereco = new Endereco(rua, bairro, numero, complemento, ponto_referencia);
                     objCliente = new Cliente(nome, cpf, telefone, objEndereco);
                     objPedido.setObjCliente(objCliente);
-                    String msg = "Seu pedido foi realizado com sucesso. Bom apatite!";
-                    AlertDialog.Builder dlg = new AlertDialog.Builder(IdentificacaoActivity.this);
-                    dlg.setMessage(msg);
-                    dlg.setNeutralButton("OK", null);
-                    dlg.show();
+                    Intent intent = new Intent(IdentificacaoActivity.this, MainActivity.class);
+                    startActivity(intent);
+                String msg = "Seu pedido foi realizado com sucesso. Bom apatite!";
+                AlertDialog.Builder dlg = new AlertDialog.Builder(IdentificacaoActivity.this);
+                dlg.setMessage(msg);
+                dlg.setNeutralButton("OK", null);
+                dlg.show();
                // }
             }
         });
