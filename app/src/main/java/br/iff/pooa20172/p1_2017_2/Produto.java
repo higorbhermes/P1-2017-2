@@ -7,11 +7,12 @@ import android.os.Bundle;
  */
 
 public class Produto {
-    public Produto(String nome, String descricao, double preco, int imagem){
+    public Produto(String nome, String descricao, double preco, int imagem, int quantidade){
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
         this.imagem = imagem;
+        this.quantidade = quantidade;
     }
     public Bundle toBundle(){
         Bundle bundle = new Bundle();
@@ -19,11 +20,12 @@ public class Produto {
         bundle.putString("descricao", descricao);
         bundle.putInt("imagem", imagem);
         bundle.putDouble("preco", preco);
+        bundle.putInt("quantidade", quantidade);
         return bundle;
     }
     protected String nome, descricao;
     protected double preco;
-    protected int imagem;
+    protected int imagem, quantidade;
     public String getNome() {
         return nome;
     }
@@ -45,7 +47,14 @@ public class Produto {
     public int getImagem() {
         return imagem;
     }
+    public int getQuantidade() {
+        return quantidade;
+    }
     public void setImagem(int imagem) {
         this.imagem = imagem;
     }
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
 }

@@ -26,7 +26,7 @@
             <ListView
                 android:id="@+id/lvEquipes"
                 android:layout_width="match_parent"
-                android:layout_height="1850dp"
+                android:layout_height="1750dp"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp" />
 
@@ -34,7 +34,7 @@
                 android:id="@+id/tv_total"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Total do Pedido:" />
+                android:text="Total do Pedido: 0.0" />
 
             <Button
                 android:id="@+id/button_finalizar"

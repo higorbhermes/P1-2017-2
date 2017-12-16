@@ -37,11 +37,13 @@ public class ProdutoAdapter extends ArrayAdapter<Produto>{
         TextView descricao = (TextView) rowView.findViewById(R.id.descricao);
         TextView preco = (TextView) rowView.findViewById(R.id.preco);
         String s_Preco = String.valueOf(elementos.get(position).getPreco());
+        TextView quantidade = (TextView) rowView.findViewById(R.id.quantidade);
+        String s_quantidade = String.valueOf(elementos.get(position).getQuantidade());
         nome.setText(elementos.get(position).getNome());
         imagem.setImageResource(elementos.get(position).getImagem());
         descricao.setText(elementos.get(position).getDescricao());
         preco.setText("Preço: R$"+s_Preco);
-
+        quantidade.setText("Quantidade: "+s_quantidade);
         return rowView;
     }
 

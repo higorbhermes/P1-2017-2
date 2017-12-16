@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 public class AdicionarProdutoActivity extends AppCompatActivity {
     double preco;
+    int quantidadeAntiga;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,10 +23,13 @@ public class AdicionarProdutoActivity extends AppCompatActivity {
         String descricao = (String) intent.getSerializableExtra("descricao");
         preco = (double) intent.getSerializableExtra("preco");
         int pos = (int) intent.getSerializableExtra("pos");
+        quantidadeAntiga = (int) intent.getSerializableExtra("quantidade");
         tv_Nome.setText(nome);
         tv_Descricao.setText(descricao);
         String s_preco = String.valueOf(preco);
         tv_preco.setText("Preço: R$"+s_preco);
+        String s_quantidade = String.valueOf(quantidadeAntiga);
+        et_QuantProduto.setText(s_quantidade);
         ImageView imagemComida = (ImageView) findViewById(R.id.iv_comida);
         if (pos==0){
             imagemComida.setImageResource(R.drawable.produto1);
@@ -71,9 +75,17 @@ public class AdicionarProdutoActivity extends AppCompatActivity {
     public void finish() {
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
-        double valorPedido = preco * Double.parseDouble(((EditText) findViewById(R.id.et_QuantProduto)).getText().toString());
-        bundle.putString("quantidade", ((EditText) findViewById(R.id.et_QuantProduto)).getText().toString());
-        bundle.putDouble("valorPedido", valorPedido);
+        double valorPedido;
+        int quantidadeNova = Integer.parseInt(((EditText) findViewById(R.id.et_QuantProduto)).getText().toString());
+        if (quantidadeNova<quantidadeAntiga){
+            valorPedido = (preco * quantidadeNova)-(preco * quantidadeAntiga);
+            bundle.putDouble("valorPedido", valorPedido);
+        }
+        else{
+            valorPedido = preco * quantidadeNova;
+            bundle.putDouble("valorPedido", valorPedido);
+        }
+        bundle.putInt("quantidade", Integer.parseInt(((EditText) findViewById(R.id.et_QuantProduto)).getText().toString()));
         intent.putExtras(bundle);
         setResult(RESULT_OK, intent);
         super.finish();
