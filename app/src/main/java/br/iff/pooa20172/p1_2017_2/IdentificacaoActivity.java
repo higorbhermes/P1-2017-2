@@ -7,15 +7,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
-public class IdentificacaoActivity extends AppCompatActivity {
+import java.io.Serializable;
+
+public class IdentificacaoActivity extends AppCompatActivity implements Serializable{
     public Cliente objCliente;
     public Endereco objEndereco;
+    public Pedido objPedido;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identificacao);
         final String nome, cpf, telefone, rua, bairro, numero, complemento, ponto_referencia;
+        Intent intent = getIntent();
+        objPedido = (Pedido) intent.getSerializableExtra("pedido");
+        final RadioButton rb_dinheiro = (RadioButton)findViewById(R.id.rb_dinheiro);
+        final RadioButton rb_credito = (RadioButton)findViewById(R.id.rb_credito);
+        final RadioButton rb_debito = (RadioButton)findViewById(R.id.rb_debito);
         EditText et_NomeCliente = (EditText) findViewById(R.id.et_NomeCliente);
         EditText et_Cpf = (EditText) findViewById(R.id.et_CpfCliente);
         EditText et_telefone = (EditText) findViewById(R.id.et_TelefoneCliente);
@@ -44,8 +53,22 @@ public class IdentificacaoActivity extends AppCompatActivity {
                     dlg.show();
                 }*/
                 //else{
+                     String pagamento;
+                    if(rb_dinheiro.isChecked()==true){
+                        pagamento = "Dinheiro";
+                        objPedido.setFormaPagamento(pagamento);
+                    }
+                    if(rb_credito.isChecked()==true){
+                        pagamento = "Crédito";
+                         objPedido.setFormaPagamento(pagamento);
+                     }
+                    if(rb_debito.isChecked()==true){
+                         pagamento = "Débito";
+                        objPedido.setFormaPagamento(pagamento);
+                     }
                     objEndereco = new Endereco(rua, bairro, numero, complemento, ponto_referencia);
                     objCliente = new Cliente(nome, cpf, telefone, objEndereco);
+                    objPedido.setObjCliente(objCliente);
                     String msg = "Seu pedido foi realizado com sucesso. Bom apatite!";
                     AlertDialog.Builder dlg = new AlertDialog.Builder(IdentificacaoActivity.this);
                     dlg.setMessage(msg);

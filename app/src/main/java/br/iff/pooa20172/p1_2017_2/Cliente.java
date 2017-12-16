@@ -1,10 +1,12 @@
 package br.iff.pooa20172.p1_2017_2;
 
+import java.io.Serializable;
+
 /**
  * Created by Higor on 16/12/2017.
  */
 
-public class Cliente {
+public class Cliente implements Serializable{
     String nome, cpf, telefone;
     Endereco objEndereco;
 

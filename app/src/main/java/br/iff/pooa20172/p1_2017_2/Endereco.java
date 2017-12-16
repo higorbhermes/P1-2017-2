@@ -1,10 +1,12 @@
 package br.iff.pooa20172.p1_2017_2;
 
+import java.io.Serializable;
+
 /**
  * Created by Higor on 16/12/2017.
  */
 
-public class Endereco {
+public class Endereco implements Serializable{
     String rua, bairro, numero, complemento, ponto_referencia;
     public Endereco(String rua, String bairro, String numero, String complemento, String ponto_referencia){
         this.rua = rua;

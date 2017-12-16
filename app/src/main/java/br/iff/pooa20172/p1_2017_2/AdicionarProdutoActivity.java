@@ -7,7 +7,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class AdicionarProdutoActivity extends AppCompatActivity {
+import java.io.Serializable;
+
+public class AdicionarProdutoActivity extends AppCompatActivity implements Serializable{
     double preco;
     int quantidadeAntiga;
     @Override

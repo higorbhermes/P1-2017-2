@@ -2,11 +2,13 @@ package br.iff.pooa20172.p1_2017_2;
 
 import android.os.Bundle;
 
+import java.io.Serializable;
+
 /**
  * Created by Higor on 15/12/2017.
  */
 
-public class Produto {
+public class Produto implements Serializable{
     public Produto(String nome, String descricao, double preco, int imagem, int quantidade){
         this.nome = nome;
         this.descricao = descricao;

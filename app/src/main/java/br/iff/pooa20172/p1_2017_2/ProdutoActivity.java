@@ -12,15 +12,17 @@ import android.widget.TextView;
 import android.widget.Button;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ProdutoActivity extends AppCompatActivity {
+public class ProdutoActivity extends AppCompatActivity implements Serializable {
     private ArrayAdapter adapter;
     private ArrayList<Produto> produto;
     private Produto pr;
-    int pos;
+    int pos, inicio = 0;
     double total_pedido = 0.0;
     private static final int REQUEST_CODE_CONFIRMACAO = 0;
+    Pedido objPedido;
 
 
     @Override
@@ -29,6 +31,7 @@ public class ProdutoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_produto);
         ListView lista = (ListView) findViewById(R.id.lvEquipes);
         final ArrayList<Produto> produto = adicionarProduto();
+        objPedido = new Pedido();
         adapter = new ProdutoAdapter(this, produto);
         lista.setAdapter(adapter);
         Button button_finalizar = (Button) findViewById(R.id.button_finalizar);
@@ -46,6 +49,7 @@ public class ProdutoActivity extends AppCompatActivity {
         button_finalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                objPedido.setTotal_pedido(total_pedido);
                 if (total_pedido==0.0){
                     String msg = "Você ainda não escolheu nenhum produto";
                     AlertDialog.Builder dlg = new AlertDialog.Builder(ProdutoActivity.this);
@@ -55,6 +59,7 @@ public class ProdutoActivity extends AppCompatActivity {
                 }
                 else{
                     Intent intent = new Intent(ProdutoActivity.this, IdentificacaoActivity.class);
+                    intent.putExtra("pedido", objPedido);
                     startActivity(intent);
                 }
             }
@@ -68,6 +73,8 @@ public class ProdutoActivity extends AppCompatActivity {
             pr = produto.get(pos);
             if(dados.containsKey("quantidade")){
                 pr.setQuantidade(dados.getInt("quantidade"));
+                objPedido.setObjProduto(pr);
+                objPedido.adicionarItem();
             }
             if(dados.containsKey("valorPedido")){
                 TextView tv_total = (TextView) findViewById(R.id.tv_total);

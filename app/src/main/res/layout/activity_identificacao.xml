@@ -142,25 +142,26 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" />
+                android:orientation="vertical" >
 
-            <RadioButton
-                android:id="@+id/rb_dinheiro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dinheiro" />
+                <RadioButton
+                    android:id="@+id/rb_dinheiro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dinheiro" />
 
-            <RadioButton
-                android:id="@+id/rb_credito"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Crédito" />
+                <RadioButton
+                    android:id="@+id/rb_credito"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Crédito" />
 
-            <RadioButton
-                android:id="@+id/rb_debito"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Débito" />
+                <RadioButton
+                    android:id="@+id/rb_debito"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Débito" />
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/textView25"
