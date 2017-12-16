@@ -139,23 +139,39 @@
                 android:text="Forma de Pagamento"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/rb_dinheiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dinheiro" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/rb_credito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Crédito" />
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/rb_debito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Débito" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button_concluir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Concluir" />
 
         </LinearLayout>
     </ScrollView>
