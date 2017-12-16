@@ -36,7 +36,6 @@ public class ProdutoAdapter extends ArrayAdapter<Produto>{
         ImageView imagem = (ImageView) rowView.findViewById(R.id.imagem);
         TextView descricao = (TextView) rowView.findViewById(R.id.descricao);
         TextView preco = (TextView) rowView.findViewById(R.id.preco);
-        EditText quantidade = (EditText) rowView.findViewById(R.id.et_Quantidade);
         String s_Preco = String.valueOf(elementos.get(position).getPreco());
         nome.setText(elementos.get(position).getNome());
         imagem.setImageResource(elementos.get(position).getImagem());

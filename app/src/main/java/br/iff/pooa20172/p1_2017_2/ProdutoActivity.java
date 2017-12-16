@@ -1,15 +1,23 @@
 package br.iff.pooa20172.p1_2017_2;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class ProdutoActivity extends AppCompatActivity {
     private ArrayAdapter adapter;
     private ArrayList<Produto> produto;
+    private Produto pr;
+    int pos;
+    private static final int REQUEST_CODE_CONFIRMACAO = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +27,32 @@ public class ProdutoActivity extends AppCompatActivity {
         final ArrayList<Produto> produto = adicionarProduto();
         adapter = new ProdutoAdapter(this, produto);
         lista.setAdapter(adapter);
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                pos = i;
+                Intent intent = new Intent(ProdutoActivity.this, AdicionarProdutoActivity.class);
+                Bundle bundle = produto.get(i).toBundle();
+                intent.putExtras(bundle);
+                intent.putExtra("pos", pos);
+                startActivityForResult(intent, REQUEST_CODE_CONFIRMACAO);
+            }
+        });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent retorno) {
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_CONFIRMACAO) {
+            Bundle dados = retorno.getExtras();
+            pr = produto.get(pos);
+            if(dados.containsKey("quantidade")){
+                TextView et_QuantProduto = (TextView) findViewById(R.id.quantidade);
+                et_QuantProduto.setText("Quantidade: "+dados.getString("quantidade"));
+            }
+            adapter.notifyDataSetChanged();
+        }
+    }
+
     private ArrayList<Produto> adicionarProduto() {
         produto = new ArrayList<Produto>();
         Produto produto1 = new Produto("Carne de sol com nata", "Tiras de carne de sol com molho de nata", 12.00, R.drawable.produto1);
@@ -46,7 +79,7 @@ public class ProdutoActivity extends AppCompatActivity {
         produto.add(produto11);
         Produto produto12 = new Produto("Maltado Gelado", "Leite com chocalate em pó", 5.00, R.drawable.bebida2);
         produto.add(produto12);
-        Produto produto13 = new Produto("Caipiroska", "Caipiroskas de frutas", 5.00, R.drawable.bebida2);
+        Produto produto13 = new Produto("Caipiroska", "Caipiroskas de frutas", 5.00, R.drawable.bebida3);
         produto.add(produto13);
         return produto;
     }

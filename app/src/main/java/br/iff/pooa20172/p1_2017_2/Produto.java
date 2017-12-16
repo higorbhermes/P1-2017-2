@@ -1,5 +1,7 @@
 package br.iff.pooa20172.p1_2017_2;
 
+import android.os.Bundle;
+
 /**
  * Created by Higor on 15/12/2017.
  */
@@ -10,6 +12,14 @@ public class Produto {
         this.descricao = descricao;
         this.preco = preco;
         this.imagem = imagem;
+    }
+    public Bundle toBundle(){
+        Bundle bundle = new Bundle();
+        bundle.putString("nome", nome);
+        bundle.putString("descricao", descricao);
+        bundle.putInt("imagem", imagem);
+        bundle.putDouble("preco", preco);
+        return bundle;
     }
     protected String nome, descricao;
     protected double preco;
