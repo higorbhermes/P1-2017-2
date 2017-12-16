@@ -1,6 +1,7 @@
 package br.iff.pooa20172.p1_2017_2;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Button;
+
 
 import java.util.ArrayList;
 
@@ -28,6 +31,7 @@ public class ProdutoActivity extends AppCompatActivity {
         final ArrayList<Produto> produto = adicionarProduto();
         adapter = new ProdutoAdapter(this, produto);
         lista.setAdapter(adapter);
+        Button button_finalizar = (Button) findViewById(R.id.button_finalizar);
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -37,6 +41,22 @@ public class ProdutoActivity extends AppCompatActivity {
                 intent.putExtras(bundle);
                 intent.putExtra("pos", pos);
                 startActivityForResult(intent, REQUEST_CODE_CONFIRMACAO);
+            }
+        });
+        button_finalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (total_pedido==0.0){
+                    String msg = "Você ainda não escolheu nenhum produto";
+                    AlertDialog.Builder dlg = new AlertDialog.Builder(ProdutoActivity.this);
+                    dlg.setMessage(msg);
+                    dlg.setNeutralButton("OK", null);
+                    dlg.show();
+                }
+                else{
+                    Intent intent = new Intent(ProdutoActivity.this, IdentificacaoActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }

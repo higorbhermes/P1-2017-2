@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".ProdutoActivity" />
         <activity android:name=".ActivityQuemSomos" />
-        <activity android:name=".AdicionarProdutoActivity"></activity>
+        <activity android:name=".AdicionarProdutoActivity" />
+        <activity android:name=".IdentificacaoActivity"></activity>
     </application>
 
 </manifest>
