@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Button;
 
@@ -58,6 +59,22 @@ public class ProdutoActivity extends AppCompatActivity implements Serializable {
                     dlg.show();
                 }
                 else{
+                    final RadioButton rb_dinheiro = (RadioButton)findViewById(R.id.rb_dinheiro);
+                    final RadioButton rb_credito = (RadioButton)findViewById(R.id.rb_credito);
+                    final RadioButton rb_debito = (RadioButton)findViewById(R.id.rb_debito);
+                    String pagamento;
+                    if(rb_dinheiro.isChecked()==true){
+                        pagamento = "Dinheiro";
+                        objPedido.setFormaPagamento(pagamento);
+                    }
+                    if(rb_credito.isChecked()==true){
+                        pagamento = "Crédito";
+                        objPedido.setFormaPagamento(pagamento);
+                    }
+                    if(rb_debito.isChecked()==true){
+                        pagamento = "Débito";
+                        objPedido.setFormaPagamento(pagamento);
+                    }
                     Intent intent = new Intent(ProdutoActivity.this, IdentificacaoActivity.class);
                     intent.putExtra("pedido", objPedido);
                     startActivity(intent);
