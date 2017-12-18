@@ -21,7 +21,8 @@
         <activity android:name=".AdicionarProdutoActivity" />
         <activity android:name=".IdentificacaoActivity" />
         <activity android:name=".CadastroActivity" />
-        <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".MensagemActivity"></activity>
     </application>
 
 </manifest>

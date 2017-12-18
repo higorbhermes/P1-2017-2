@@ -22,6 +22,7 @@ public class MenuActivity extends AppCompatActivity implements Serializable{
         id = (int) intent.getSerializableExtra("id");
         Button button_Pedido = (Button) findViewById(R.id.button_Pedido);
         Button button_QuemSomos = (Button) findViewById(R.id.button_QuemSomos);
+        Button button_Contatos = (Button) findViewById(R.id.button_Contatos);
         Button button_Sair = (Button) findViewById(R.id.button_Sair);
         button_Pedido.setOnClickListener(new View.OnClickListener() {
 
@@ -40,10 +41,20 @@ public class MenuActivity extends AppCompatActivity implements Serializable{
                 startActivity(intent);
             }
         });
+        button_Contatos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuActivity.this, MensagemActivity.class);
+                intent.putExtra("clientes", objCliente);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
         button_Sair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.exit(0);
+                Intent intent = new Intent(MenuActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
