@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 
 public class Cliente implements Serializable{
-    String nome, cpf, telefone;
+    String nome, cpf, telefone, email, senha;
     Endereco objEndereco;
 
 
@@ -43,10 +43,37 @@ public class Cliente implements Serializable{
         this.objEndereco = objEndereco;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public Cliente(String nome, String cpf, String telefone, Endereco objEndereco){
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
         this.objEndereco = objEndereco;
+    }
+
+    public Cliente(String nome, String cpf, String telefone, String email, String senha){
+        this.nome = nome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
+    }
+    public Cliente(){
+
     }
 }

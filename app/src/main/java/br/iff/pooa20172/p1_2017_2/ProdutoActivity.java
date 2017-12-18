@@ -24,6 +24,8 @@ public class ProdutoActivity extends AppCompatActivity implements Serializable {
     double total_pedido = 0.0;
     private static final int REQUEST_CODE_CONFIRMACAO = 0;
     Pedido objPedido;
+    public Cliente[] objCliente;
+    int id;
 
 
     @Override
@@ -32,6 +34,9 @@ public class ProdutoActivity extends AppCompatActivity implements Serializable {
         setContentView(R.layout.activity_produto);
         ListView lista = (ListView) findViewById(R.id.lvEquipes);
         final ArrayList<Produto> produto = adicionarProduto();
+        final Intent intent = getIntent();
+        objCliente = (Cliente[]) intent.getSerializableExtra("clientes");
+        id = (int) intent.getSerializableExtra("id");
         objPedido = new Pedido();
         adapter = new ProdutoAdapter(this, produto);
         lista.setAdapter(adapter);
@@ -77,6 +82,8 @@ public class ProdutoActivity extends AppCompatActivity implements Serializable {
                     }
                     Intent intent = new Intent(ProdutoActivity.this, IdentificacaoActivity.class);
                     intent.putExtra("pedido", objPedido);
+                    intent.putExtra("clientes", objCliente);
+                    intent.putExtra("id", id);
                     startActivity(intent);
                 }
             }

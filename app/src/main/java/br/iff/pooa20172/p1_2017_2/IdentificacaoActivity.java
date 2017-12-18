@@ -12,55 +12,49 @@ import android.widget.RadioButton;
 import java.io.Serializable;
 
 public class IdentificacaoActivity extends AppCompatActivity implements Serializable{
-    public Cliente objCliente;
     public Endereco objEndereco;
     public Pedido objPedido;
+    public Cliente[] objCliente;
+    int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identificacao);
-        final String nome, cpf, telefone, rua, bairro, numero, complemento, ponto_referencia;
         final Intent intent = getIntent();
         objPedido = (Pedido) intent.getSerializableExtra("pedido");
-        EditText et_NomeCliente = (EditText) findViewById(R.id.et_NomeCliente);
-        EditText et_Cpf = (EditText) findViewById(R.id.et_CpfCliente);
-        EditText et_telefone = (EditText) findViewById(R.id.et_TelefoneCliente);
-        EditText et_rua = (EditText) findViewById(R.id.et_Rua);
-        EditText et_bairro = (EditText) findViewById(R.id.et_Bairro);
-        EditText et_numero = (EditText) findViewById(R.id.et_Numero);
-        EditText et_complemento = (EditText) findViewById(R.id.et_Complemento);
-        EditText et_referencia = (EditText) findViewById(R.id.et_Referencia);
-        nome = et_NomeCliente.getText().toString();
-        cpf = et_Cpf.getText().toString();
-        telefone = et_telefone.getText().toString();
-        rua = et_rua.getText().toString();
-        bairro = et_bairro.getText().toString();
-        numero = et_numero.getText().toString();
-        complemento = et_complemento.getText().toString();
-        ponto_referencia = et_referencia.getText().toString();
+        objCliente = (Cliente[]) intent.getSerializableExtra("clientes");
+        id = (int) intent.getSerializableExtra("id");
         Button button_concluir = (Button) findViewById(R.id.button_concluir);
         button_concluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*if (nome.equals("") || cpf.equals("") || telefone.equals("") || rua.equals("") || bairro.equals("")){
+                String rua, bairro, numero, complemento, ponto_referencia;
+                EditText et_rua = (EditText) findViewById(R.id.et_Rua);
+                EditText et_bairro = (EditText) findViewById(R.id.et_Bairro);
+                EditText et_numero = (EditText) findViewById(R.id.et_Numero);
+                EditText et_complemento = (EditText) findViewById(R.id.et_Complemento);
+                EditText et_referencia = (EditText) findViewById(R.id.et_Referencia);
+                rua = et_rua.getText().toString();
+                bairro = et_bairro.getText().toString();
+                numero = et_numero.getText().toString();
+                complemento = et_complemento.getText().toString();
+                ponto_referencia = et_referencia.getText().toString();
+                if (rua.equals("") || bairro.equals("") || numero.equals("")){
                     String msg = "Ops! Você esqueceu de prencher algum campo importante!";
                     AlertDialog.Builder dlg = new AlertDialog.Builder(IdentificacaoActivity.this);
                     dlg.setMessage(msg);
                     dlg.setNeutralButton("OK", null);
                     dlg.show();
-                }*/
-                //else{
+                }
+                else{
                     objEndereco = new Endereco(rua, bairro, numero, complemento, ponto_referencia);
-                    objCliente = new Cliente(nome, cpf, telefone, objEndereco);
-                    objPedido.setObjCliente(objCliente);
-                    Intent intent = new Intent(IdentificacaoActivity.this, MainActivity.class);
+                    objCliente[id].setObjEndereco(objEndereco);
+                    objPedido.setObjCliente(objCliente[id]);
+                    Intent intent = new Intent(IdentificacaoActivity.this, MenuActivity.class);
+                    intent.putExtra("clientes", objCliente);
+                    intent.putExtra("id", id);
                     startActivity(intent);
-                String msg = "Seu pedido foi realizado com sucesso. Bom apatite!";
-                AlertDialog.Builder dlg = new AlertDialog.Builder(IdentificacaoActivity.this);
-                dlg.setMessage(msg);
-                dlg.setNeutralButton("OK", null);
-                dlg.show();
-               // }
+                }
             }
         });
 

@@ -4,79 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.iff.pooa20172.p1_2017_2.MainActivity"
+    tools:context="br.iff.pooa20172.p1_2017_2.MenuActivity"
     android:orientation="vertical">
+
     <TextView
-        android:id="@+id/textView27"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_titulo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="     Restaurante Salex"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/image_restaurante"
         android:layout_width="wrap_content"
-        android:layout_height="141dp"
+        android:layout_height="163dp"
         app:srcCompat="@drawable/logo" />
-
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/et_email"
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="E-mail"
-        android:inputType="textEmailAddress" />
-
-    <EditText
-        android:id="@+id/et_senha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Senha"
-        android:inputType="textPassword" />
+        android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/button_entrar"
+        android:id="@+id/button_Pedido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Entrar" />
+        android:text="Realizar Pedido" />
 
-    <TextView
-        android:id="@+id/textView32"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/textView36"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/textView37"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/textView31"
+    <Button
+        android:id="@+id/button_QuemSomos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="               Ainda não possui cadastro?"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:text="Quem Somos" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -84,22 +77,24 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView34"
+            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button_cadastro"
-            android:layout_width="209dp"
+            android:id="@+id/button_Sair"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cadastrar-se" />
+            android:layout_weight="1"
+            android:text="sair" />
 
         <TextView
-            android:id="@+id/textView35"
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
+
     </LinearLayout>
 
 </LinearLayout>
