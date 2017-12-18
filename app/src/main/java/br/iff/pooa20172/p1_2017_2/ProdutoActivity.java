@@ -68,23 +68,32 @@ public class ProdutoActivity extends AppCompatActivity implements Serializable {
                     final RadioButton rb_credito = (RadioButton)findViewById(R.id.rb_credito);
                     final RadioButton rb_debito = (RadioButton)findViewById(R.id.rb_debito);
                     String pagamento;
-                    if(rb_dinheiro.isChecked()==true){
-                        pagamento = "Dinheiro";
-                        objPedido.setFormaPagamento(pagamento);
+                    if((rb_dinheiro.isChecked()==false)&&(rb_credito.isChecked()==false)&&(rb_debito.isChecked()==false)){
+                        String msg = "Selecione uma forma de pagamento";
+                        AlertDialog.Builder dlg = new AlertDialog.Builder(ProdutoActivity.this);
+                        dlg.setMessage(msg);
+                        dlg.setNeutralButton("OK", null);
+                        dlg.show();
                     }
-                    if(rb_credito.isChecked()==true){
-                        pagamento = "Crédito";
-                        objPedido.setFormaPagamento(pagamento);
+                    else{
+                        if(rb_dinheiro.isChecked()==true){
+                            pagamento = "Dinheiro";
+                            objPedido.setFormaPagamento(pagamento);
+                        }
+                        if(rb_credito.isChecked()==true){
+                            pagamento = "Crédito";
+                            objPedido.setFormaPagamento(pagamento);
+                        }
+                        if(rb_debito.isChecked()==true){
+                            pagamento = "Débito";
+                            objPedido.setFormaPagamento(pagamento);
+                        }
+                        Intent intent = new Intent(ProdutoActivity.this, IdentificacaoActivity.class);
+                        intent.putExtra("pedido", objPedido);
+                        intent.putExtra("clientes", objCliente);
+                        intent.putExtra("id", id);
+                        startActivity(intent);
                     }
-                    if(rb_debito.isChecked()==true){
-                        pagamento = "Débito";
-                        objPedido.setFormaPagamento(pagamento);
-                    }
-                    Intent intent = new Intent(ProdutoActivity.this, IdentificacaoActivity.class);
-                    intent.putExtra("pedido", objPedido);
-                    intent.putExtra("clientes", objCliente);
-                    intent.putExtra("id", id);
-                    startActivity(intent);
                 }
             }
         });
